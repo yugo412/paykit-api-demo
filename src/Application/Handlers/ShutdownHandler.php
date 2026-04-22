@@ -67,7 +67,7 @@ class ShutdownHandler
                 false,
             );
 
-            $responseEmitter = new ResponseEmitter();
+            $responseEmitter = new ResponseEmitter;
             $responseEmitter->emit($response);
         }
     }

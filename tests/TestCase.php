@@ -21,26 +21,25 @@ class TestCase extends PHPUnit_TestCase
     use ProphecyTrait;
 
     /**
-     * @return App
      * @throws Exception
      */
     protected function getAppInstance(): App
     {
         // Instantiate PHP-DI ContainerBuilder
-        $containerBuilder = new ContainerBuilder();
+        $containerBuilder = new ContainerBuilder;
 
         // Container intentionally not compiled for tests.
 
         // Set up settings
-        $settings = require __DIR__ . '/../app/settings.php';
+        $settings = require __DIR__.'/../app/settings.php';
         $settings($containerBuilder);
 
         // Set up dependencies
-        $dependencies = require __DIR__ . '/../app/dependencies.php';
+        $dependencies = require __DIR__.'/../app/dependencies.php';
         $dependencies($containerBuilder);
 
         // Set up repositories
-        $repositories = require __DIR__ . '/../app/repositories.php';
+        $repositories = require __DIR__.'/../app/repositories.php';
         $repositories($containerBuilder);
 
         // Build PHP-DI Container instance
@@ -51,24 +50,16 @@ class TestCase extends PHPUnit_TestCase
         $app = AppFactory::create();
 
         // Register middleware
-        $middleware = require __DIR__ . '/../app/middleware.php';
+        $middleware = require __DIR__.'/../app/middleware.php';
         $middleware($app);
 
         // Register routes
-        $routes = require __DIR__ . '/../app/routes.php';
+        $routes = require __DIR__.'/../app/routes.php';
         $routes($app);
 
         return $app;
     }
 
-    /**
-     * @param string $method
-     * @param string $path
-     * @param array  $headers
-     * @param array  $cookies
-     * @param array  $serverParams
-     * @return Request
-     */
     protected function createRequest(
         string $method,
         string $path,
@@ -78,9 +69,9 @@ class TestCase extends PHPUnit_TestCase
     ): Request {
         $uri = new Uri('', '', 80, $path);
         $handle = fopen('php://temp', 'w+');
-        $stream = (new StreamFactory())->createStreamFromResource($handle);
+        $stream = (new StreamFactory)->createStreamFromResource($handle);
 
-        $h = new Headers();
+        $h = new Headers;
         foreach ($headers as $name => $value) {
             $h->addHeader($name, $value);
         }

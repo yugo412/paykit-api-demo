@@ -18,7 +18,7 @@ return function (ContainerBuilder $containerBuilder) {
             $loggerSettings = $settings->get('logger');
             $logger = new Logger($loggerSettings['name']);
 
-            $processor = new UidProcessor();
+            $processor = new UidProcessor;
             $logger->pushProcessor($processor);
 
             $handler = new StreamHandler($loggerSettings['path'], $loggerSettings['level']);

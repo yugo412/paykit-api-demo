@@ -22,12 +22,8 @@ class UserTest extends TestCase
 
     /**
      * @dataProvider userProvider
-     * @param int    $id
-     * @param string $username
-     * @param string $firstName
-     * @param string $lastName
      */
-    public function testGetters(int $id, string $username, string $firstName, string $lastName)
+    public function test_getters(int $id, string $username, string $firstName, string $lastName)
     {
         $user = new User($id, $username, $firstName, $lastName);
 
@@ -39,12 +35,8 @@ class UserTest extends TestCase
 
     /**
      * @dataProvider userProvider
-     * @param int    $id
-     * @param string $username
-     * @param string $firstName
-     * @param string $lastName
      */
-    public function testJsonSerialize(int $id, string $username, string $firstName, string $lastName)
+    public function test_json_serialize(int $id, string $username, string $firstName, string $lastName)
     {
         $user = new User($id, $username, $firstName, $lastName);
 

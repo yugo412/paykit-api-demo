@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Tests\Application\Actions\User;
 
 use App\Application\Actions\ActionPayload;
-use App\Domain\User\UserRepository;
 use App\Domain\User\User;
+use App\Domain\User\UserRepository;
 use DI\Container;
 use Tests\TestCase;
 
 class ListUserActionTest extends TestCase
 {
-    public function testAction()
+    public function test_action()
     {
         $app = $this->getAppInstance();
 

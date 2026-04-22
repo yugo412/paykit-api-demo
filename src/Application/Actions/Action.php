@@ -59,11 +59,12 @@ abstract class Action
 
     /**
      * @return mixed
+     *
      * @throws HttpBadRequestException
      */
     protected function resolveArg(string $name)
     {
-        if (!isset($this->args[$name])) {
+        if (! isset($this->args[$name])) {
             throw new HttpBadRequestException($this->request, "Could not resolve argument `{$name}`.");
         }
 
@@ -71,7 +72,7 @@ abstract class Action
     }
 
     /**
-     * @param array|object|null $data
+     * @param  array|object|null  $data
      */
     protected function respondWithData($data = null, int $statusCode = 200): Response
     {
@@ -86,7 +87,7 @@ abstract class Action
         $this->response->getBody()->write($json);
 
         return $this->response
-                    ->withHeader('Content-Type', 'application/json')
-                    ->withStatus($payload->getStatusCode());
+            ->withHeader('Content-Type', 'application/json')
+            ->withStatus($payload->getStatusCode());
     }
 }

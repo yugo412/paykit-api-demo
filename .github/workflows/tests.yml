@@ -31,7 +31,7 @@ jobs:
 
             - name: Coding standards
               if: matrix.analysis
-              run: vendor/bin/phpcs
+              run: vendor/bin/pint --test
 
             - name: Static analysis
               if: matrix.analysis

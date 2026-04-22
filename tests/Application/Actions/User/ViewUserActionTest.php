@@ -16,7 +16,7 @@ use Tests\TestCase;
 
 class ViewUserActionTest extends TestCase
 {
-    public function testAction()
+    public function test_action()
     {
         $app = $this->getAppInstance();
 
@@ -43,7 +43,7 @@ class ViewUserActionTest extends TestCase
         $this->assertEquals($serializedPayload, $payload);
     }
 
-    public function testActionThrowsUserNotFoundException()
+    public function test_action_throws_user_not_found_exception()
     {
         $app = $this->getAppInstance();
 
@@ -62,7 +62,7 @@ class ViewUserActionTest extends TestCase
         $userRepositoryProphecy = $this->prophesize(UserRepository::class);
         $userRepositoryProphecy
             ->findUserOfId(1)
-            ->willThrow(new UserNotFoundException())
+            ->willThrow(new UserNotFoundException)
             ->shouldBeCalledOnce();
 
         $container->set(UserRepository::class, $userRepositoryProphecy->reveal());

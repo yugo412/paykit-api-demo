@@ -13,13 +13,14 @@ use Tests\TestCase;
 
 class ActionTest extends TestCase
 {
-    public function testActionSetsHttpCodeInRespond()
+    public function test_action_sets_http_code_in_respond()
     {
         $app = $this->getAppInstance();
         $container = $app->getContainer();
         $logger = $container->get(LoggerInterface::class);
 
-        $testAction = new class ($logger) extends Action {
+        $testAction = new class($logger) extends Action
+        {
             public function __construct(
                 LoggerInterface $loggerInterface
             ) {
@@ -32,7 +33,7 @@ class ActionTest extends TestCase
                     new ActionPayload(
                         202,
                         [
-                            'willBeDoneAt' => (new DateTimeImmutable())->format(DateTimeImmutable::ATOM)
+                            'willBeDoneAt' => (new DateTimeImmutable)->format(DateTimeImmutable::ATOM),
                         ]
                     )
                 );
@@ -46,13 +47,14 @@ class ActionTest extends TestCase
         $this->assertEquals(202, $response->getStatusCode());
     }
 
-    public function testActionSetsHttpCodeRespondData()
+    public function test_action_sets_http_code_respond_data()
     {
         $app = $this->getAppInstance();
         $container = $app->getContainer();
         $logger = $container->get(LoggerInterface::class);
 
-        $testAction = new class ($logger) extends Action {
+        $testAction = new class($logger) extends Action
+        {
             public function __construct(
                 LoggerInterface $loggerInterface
             ) {
@@ -63,7 +65,7 @@ class ActionTest extends TestCase
             {
                 return $this->respondWithData(
                     [
-                        'willBeDoneAt' => (new DateTimeImmutable())->format(DateTimeImmutable::ATOM)
+                        'willBeDoneAt' => (new DateTimeImmutable)->format(DateTimeImmutable::ATOM),
                     ],
                     202
                 );
