@@ -1,0 +1,41 @@
+# flyctl launch added from .gitignore
+**/.idea
+**/.vscode
+coverage
+vendor
+logs/*
+!logs/README.md
+**/.phpunit.result.cache
+
+# flyctl launch added from var/cache/.gitignore
+var/cache/**/*
+!var/cache/**/.gitignore
+
+# flyctl launch added from vendor/fig/http-message-util/.gitignore
+vendor/fig/http-message-util/**/vendor
+
+# flyctl launch added from vendor/nikic/fast-route/.gitignore
+vendor/nikic/fast-route/vendor
+vendor/nikic/fast-route/**/.idea
+
+# ignore lock file since we have no extra dependencies
+vendor/nikic/fast-route/**/composer.lock
+
+# flyctl launch added from vendor/php-di/phpdoc-reader/.gitignore
+vendor/php-di/phpdoc-reader/**/.DS_Store
+vendor/php-di/phpdoc-reader/**/.idea/*
+vendor/php-di/phpdoc-reader/**/vendor/*
+vendor/php-di/phpdoc-reader/**/composer.phar
+vendor/php-di/phpdoc-reader/**/composer.lock
+vendor/php-di/phpdoc-reader/**/.phpcs-cache
+vendor/php-di/phpdoc-reader/**/.phpunit.result.cache
+
+# flyctl launch added from vendor/psr/container/.gitignore
+vendor/psr/container/**/composer.lock
+vendor/psr/container/**/composer.phar
+vendor/psr/container/vendor
+
+# flyctl launch added from vendor/sebastian/version/.gitignore
+vendor/sebastian/version/.php_cs.cache
+vendor/sebastian/version/.idea
+fly.toml

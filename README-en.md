@@ -1,6 +1,6 @@
 # Paykit API Demo
 
-API sederhana untuk demo integrasi dengan [paykit-php](https://github.com/yugo412/paykit-php).
+A simple API for demonstrating integration with [paykit-php](https://github.com/yugo412/paykit-php).
 
 ## Base URL
 
